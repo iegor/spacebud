@@ -1,0 +1,23 @@
+// vim: set ts=2 sw=2 fdm=marker foldmarker=BEGIN\:,END\: :
+
+$hdr_clr: darken($g_clr_dwhite, 8%)
+
+%hx_common
+  border-radius: 4px
+  background: linear-gradient(darken($hdr_clr, 10%), $hdr_clr)
+  padding: 4px
+  margin: 0px 0px 4px 0px
+  box-shadow: inset 0px 0px 2px 1px $g_clr_dgrey
+  +media_print()
+
+canvas#gfx_surface
+  background-color: $g_clr_dgrey
+  margin: 0px 14px
+
+footer.footer
+  nav
+    @extend %hx_common
+    margin: 0px
+    vertical-align: top
+    font-weight: bold
+    font-style: normal

@@ -1,0 +1,21 @@
+---
+---
+{% comment %}
+<!-- vim: set ts=2 sw=2 fdm=marker foldmarker=BEGIN\:,END\: : -->
+{% endcomment %}
+<!doctype html>
+<!--[if IE 7]>
+<html class="ie ie7" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) & !(IE 8)]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+  {% include header.html %}
+  <body onload="GameInit();">
+    {{ content }}
+  </body>
+  {% include footer.html %}
+</html>

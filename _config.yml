@@ -1,0 +1,11 @@
+# basic options
+title: SpaceBud
+author: iegor
+email: rmtdev@gmail.com
+
+# jekyll options
+markdown: kramdown
+
+sass:
+  sass_dir: assets/css
+  style: :nested

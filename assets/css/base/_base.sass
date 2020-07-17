@@ -1,0 +1,89 @@
+// vim: set ts=2 sw=2 fdm=marker foldmarker=BEGIN\:,END\: :
+
+=bg_carbon_t1()
+  background-image: $bg_image
+  background-repeat: repeat repeat
+  background-size: 25px
+
+=bg_carbon_t2($clr)
+  background: $bg_image_ct2 $clr
+  background-blend-mode: multiply
+  background-repeat: repeat repeat
+  background-size: 8px
+
+%g_shared
+  background: $g_clr_dwhite
+  color: $g_txt_clr
+  // color: #000
+
+=media_print()
+  @media print
+    border-radius: unset
+    box-shadow: unset
+
+html
+  @extend %g_shared
+  background: $g_clr_bg
+
+head
+  @extend %g_shared
+
+body
+  @extend %g_shared
+  // color: #ddd
+  min-width: 700px
+  max-width: 1050px
+  width: 100%
+  vertical-align: top
+  position: relative
+  /* font setup */
+  font-family: 'Ariel'
+  font-size: 14px
+  font-weight: normal
+  font-style: normal
+  // text-shadow: -1px 1px 0 #a0a0a0
+  // text-align: center
+  // text-decoration: none
+  margin: auto
+  padding: 10px 8px 10px 8px
+  -webkit-font-smoothing: antialiased
+
+.example, .code
+  background: darken($g_code_clr, 30%)
+  margin: 0
+  padding: 2px
+
+a
+  // opacity: .95
+  background: transparent
+  color: $g_lnk_clr
+  text-decoration: none
+  outline: 0
+
+a:hover, a:focus
+  color: lighten($g_lnk_clr, 20%)
+
+a::selection
+  color: lighten($g_lnk_clr, 40%)
+
+::selection
+  background: $g_sel_clr
+
+// to debug tables
+table.tdbg
+  border: 1px solid $g_dbg_borderclr
+  th
+    border: 1px solid $g_dbg_borderclr
+  td
+    border: 1px solid $g_dbg_borderclr
+
+footer.footer
+  @extend %g_shared
+  //background: rgba(white, 0.2)
+  background: darken($g_code_clr, 30%)
+  div.content-wrapper
+    p.copyright
+      margin: 0
+      font-size: 14px
+      text-transform: uppercase
+      color: rgba(white, 0.5)

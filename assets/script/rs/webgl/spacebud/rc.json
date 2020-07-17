@@ -1,0 +1,292 @@
+{
+  "_vim_": {
+    "modeline": "/* vim: set sw=2 ts=4 et list fdm=marker : */"
+  },
+  "game": {
+    "title": "spacebud",
+    "gfx": {
+      "width": 1024,
+      "height": 768,
+      "camera": {
+        "fov": 45.0,
+        "pos": [0.0, 0.0, 75.0],
+        "target": [0.0, 0.0, 0.0]
+      },
+      "clear_color": [0.3, 0.22, 0.31, 1.0],
+      "blending": true,
+      "depthtest": true
+    }
+  },
+  "data": {
+    "planets": [
+      { "name": "alice"
+        ,"vb": [
+          -1.0, 1.0, -1.0,
+          1.0, 1.0, -1.0,
+          1.0, -1.0, -1.0,
+          -1.0, -1.0, -1.0
+        ]
+        ,"vc": [
+          1, 1, 1,
+          1, 1, 1,
+          1, 1, 1,
+          1, 1, 1
+        ]
+        ,"tc": [
+          0.0, 0.0,
+          1.0, 0.0,
+          1.0, 1.0,
+          0.0, 1.0
+        ]
+        ,"ib": [
+          0, 1, 2,
+          0, 2, 3
+        ]
+        ,"vshtxt": [
+         "precision mediump float;",
+
+         "attribute vec3 vp;",
+         "attribute vec3 vc;",
+         "attribute vec2 vtc;",
+         "varying vec2 frag_tc;",
+         "varying vec3 frag_vc; //fragment coloring by vhs",
+         "uniform mat4 mWrld;",
+         "uniform mat4 mView;",
+         "uniform mat4 mProj;",
+
+         "void main() {",
+         "  frag_tc = vtc;",
+         "  frag_vc = vc;",
+         "  gl_Position = mProj * mView * mWrld * vec4(vp, 1.0);",
+         "  gl_PointSize = 5.0;",
+         "}"
+        ]
+        ,"fshtxt": [
+          "precision mediump float;",
+
+          "varying vec2 frag_tc;",
+          "varying vec3 frag_vc;",
+
+          "uniform sampler2D tex0;",
+
+          "void main() {",
+          "  gl_FragColor = texture2D(tex0, frag_tc) * vec4(frag_vc, 1.0);",
+          "}"
+        ]
+        ,"textures": [
+          "/spacebud/assets/img/webgl/spacebud/planets/alice.png"
+        ]
+        ,"physics": {
+          "p_initial": [
+              0.0, 0.0, 0.0
+          ],
+          "v_initial": [
+            0.0, 0.0, 0.0
+          ],
+          "mass": 10e5,
+          "radius": 7,
+          "rotation_speed": -0.0008
+        }
+      }
+      , { "name": "bob"
+        ,"vb": [
+          -1.0, 1.0, -1.0,
+          1.0, 1.0, -1.0,
+          1.0, -1.0, -1.0,
+          -1.0, -1.0, -1.0
+        ]
+        ,"vc": [
+          1, 1, 1,
+          1, 1, 1,
+          1, 1, 1,
+          1, 1, 1
+        ]
+        ,"tc": [
+          0.0, 0.0,
+          1.0, 0.0,
+          1.0, 1.0,
+          0.0, 1.0
+        ]
+        ,"ib": [
+          0, 1, 2,
+          0, 2, 3
+        ]
+        ,"vshtxt": [
+         "precision mediump float;",
+
+         "attribute vec3 vp;",
+         "attribute vec3 vc;",
+         "attribute vec2 vtc;",
+         "varying vec2 frag_tc;",
+         "varying vec3 frag_vc; //fragment coloring by vhs",
+         "uniform mat4 mWrld;",
+         "uniform mat4 mView;",
+         "uniform mat4 mProj;",
+
+         "void main() {",
+         "  frag_tc = vtc;",
+         "  frag_vc = vc;",
+         "  gl_Position = mProj * mView * mWrld * vec4(vp, 1.0);",
+         "  gl_PointSize = 5.0;",
+         "}"
+        ]
+        ,"fshtxt": [
+          "precision mediump float;",
+
+          "varying vec2 frag_tc;",
+          "varying vec3 frag_vc;",
+
+          "uniform sampler2D tex0;",
+
+          "void main() {",
+          "  gl_FragColor = texture2D(tex0, frag_tc) * vec4(frag_vc, 1.0);",
+          "}"
+        ]
+        ,"textures": [
+          "/spacebud/assets/img/webgl/spacebud/planets/bob.png"
+        ]
+        ,"physics": {
+          "p_initial": [
+            175.0, 25.0, 0.0
+          ],
+          "v_initial": [
+            -0.0005, 0.001, 0.0
+          ],
+          "mass": 10e5,
+          "radius": 20,
+          "rotation_speed": 0.0007
+        }
+      }
+    ]
+    , "rocket": {
+      "name": "bud"
+      ,"vb": [
+        -1.0, 1.0, -1.0,
+        1.0, 1.0, -1.0,
+        1.0, -1.0, -1.0,
+        -1.0, -1.0, -1.0
+      ]
+      ,"vc": [
+        1, 1, 1,
+        1, 1, 1,
+        1, 1, 1,
+        1, 1, 1
+      ]
+      ,"tc": [
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0
+      ]
+      ,"ib": [
+        0, 1, 2,
+        0, 2, 3
+      ]
+      ,"vshtxt": [
+       "precision mediump float;",
+
+       "attribute vec3 vp;",
+       "attribute vec3 vc;",
+       "attribute vec2 vtc;",
+       "varying vec2 frag_tc;",
+       "varying vec3 frag_vc; //fragment coloring by vhs",
+       "uniform mat4 mWrld;",
+       "uniform mat4 mView;",
+       "uniform mat4 mProj;",
+
+       "void main() {",
+       "  frag_tc = vtc;",
+       "  frag_vc = vc;",
+       "  gl_Position = mProj * mView * mWrld * vec4(vp, 1.0);",
+       "  gl_PointSize = 5.0;",
+       "}"
+      ]
+      ,"fshtxt": [
+        "precision mediump float;",
+
+        "varying vec2 frag_tc;",
+        "varying vec3 frag_vc;",
+
+        "uniform sampler2D tex0;",
+
+        "void main() {",
+        "  gl_FragColor = texture2D(tex0, frag_tc) * vec4(frag_vc, 1.0); // +",
+        "    //vec4(0.5, 0.5, 0.5, 1.0);",
+        "}"
+      ]
+      ,"textures": [
+        "/spacebud/assets/img/webgl/spacebud/rocket.png"
+      ]
+      ,"physics": {
+        "p_initial": [
+          -25.0, 25.0, 0.0
+        ],
+        "v_initial": [
+          0.0, 0.0, 0.0
+        ],
+        "mass": 2100,
+        "radius": 1
+      }
+    }
+    , "thruster": {
+      "name": "engine"
+      ,"vb": [
+        -1.0, 1.0, -1.0,
+        1.0, 1.0, -1.0,
+        1.0, -1.0, -1.0,
+        -1.0, -1.0, -1.0
+      ]
+      ,"vc": [
+        1, 1, 1,
+        1, 1, 1,
+        1, 1, 1,
+        1, 1, 1
+      ]
+      ,"tc": [
+        0.0, 0.0,
+        1.0, 0.0,
+        1.0, 1.0,
+        0.0, 1.0
+      ]
+      ,"ib": [
+        0, 1, 2,
+        0, 2, 3
+      ]
+      ,"vshtxt": [
+       "precision mediump float;",
+
+       "attribute vec3 vp;",
+       "attribute vec3 vc;",
+       "attribute vec2 vtc;",
+       "varying vec2 frag_tc;",
+       "varying vec3 frag_vc; //fragment coloring by vhs",
+       "uniform mat4 mWrld;",
+       "uniform mat4 mView;",
+       "uniform mat4 mProj;",
+
+       "void main() {",
+       "  frag_tc = vtc;",
+       "  frag_vc = vc;",
+       "  gl_Position = mProj * mView * mWrld * vec4(vp, 1.0);",
+       "  gl_PointSize = 5.0;",
+       "}"
+      ]
+      ,"fshtxt": [
+        "precision mediump float;",
+
+        "varying vec2 frag_tc;",
+        "varying vec3 frag_vc;",
+
+        "uniform sampler2D tex0;",
+
+        "void main() {",
+        "  gl_FragColor = texture2D(tex0, frag_tc) * vec4(frag_vc, 1.0); // +",
+        "    //vec4(0.5, 0.5, 0.5, 1.0);",
+        "}"
+      ]
+      ,"textures": [
+        "/spacebud/assets/img/webgl/spacebud/thruster.png"
+      ]
+    }
+  }
+}
